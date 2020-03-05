@@ -86,25 +86,25 @@ public class Fenetre1 extends JFrame
 				panCinquieme.removeAll();
 
 				panPremier.add(Nom(p.get(0).getNom(),p.get(0).getPoint()));
+				AfficheImage afi = new AfficheImage();
 				try {
-					URL url = new URL(p.get(0).getImage());
-					Image images = ImageIO.read(url);
-					JLabel image = new JLabel( new ImageIcon( images));
-					panPremier.add(image,BorderLayout.CENTER);
-				} catch (MalformedURLException ex) {
-					ex.printStackTrace();
-				} catch (IOException ex) {
-					ex.printStackTrace();
-				}
+					panPremier.add(afi.affichageimage(new URL(p.get(0).getImage())));
 
 
 
 				//panPremier.add(new AfficheImage("Vayne.png"));
 
-				panDeuxieme.add(Nom(p.get(1).getNom(),p.get(1).getPoint()));
-				panTroisieme.add(Nom(p.get(2).getNom(),p.get(2).getPoint()));
-				panQuatrieme.add(Nom(p.get(3).getNom(),p.get(3).getPoint()));
-				panCinquieme.add(Nom(p.get(4).getNom(),p.get(4).getPoint()));
+					panDeuxieme.add(Nom(p.get(1).getNom(),p.get(1).getPoint()));
+					panDeuxieme.add(afi.affichageimage(new URL(p.get(1).getImage())));
+					panTroisieme.add(Nom(p.get(2).getNom(),p.get(2).getPoint()));
+					panTroisieme.add(afi.affichageimage(new URL(p.get(2).getImage())));
+					panQuatrieme.add(Nom(p.get(3).getNom(),p.get(3).getPoint()));
+					panQuatrieme.add(afi.affichageimage(new URL(p.get(3).getImage())));
+					panCinquieme.add(Nom(p.get(4).getNom(),p.get(4).getPoint()));
+					panCinquieme.add(afi.affichageimage(new URL(p.get(4).getImage())));
+				} catch (MalformedURLException ex) {
+					ex.printStackTrace();
+				}
 				fenetre.setVisible(false);
 				fenetre.setVisible(true);
 

@@ -1,23 +1,26 @@
 package cmd;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
-public class AfficheImage extends JPanel {
-    Image eau;
+public class AfficheImage {
+    public JLabel affichageimage(URL url){
 
+        try {
 
-    AfficheImage(String s)
-    {
-        eau = getToolkit().getImage(s);
-        eau = eau.getScaledInstance(500,500,Image.SCALE_DEFAULT);
+            Image images = ImageIO.read(url);
+            return new JLabel(new ImageIcon(images));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
 
-        g.drawImage(eau, 0, 0, getWidth(), getHeight(), this);
-    }
+
+
 }
 
